@@ -1,0 +1,35 @@
+{
+  "name": "space-shooter",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node server",
+    "build": "npx webpack --config webpack.config.js",
+    "start-dev": "npm run build-watch & nodemon server",
+    "build-watch": "webpack -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/juanauli/space-shooter.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/juanauli/space-shooter/issues"
+  },
+  "homepage": "https://github.com/juanauli/space-shooter#readme",
+  "devDependencies": {
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "morgan": "^1.10.0",
+    "path": "^0.12.7",
+    "phaser": "^3.55.2",
+    "raw-loader": "^4.0.2",
+    "webfontloader": "^1.6.28"
+  }
+}
