@@ -30,6 +30,9 @@
     "path": "^0.12.7",
     "phaser": "^3.55.2",
     "raw-loader": "^4.0.2",
+    "redux": "^4.1.0",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-logger": "^3.0.6",
     "webfontloader": "^1.6.28"
   }
 }
