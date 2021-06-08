@@ -15,7 +15,7 @@ export default class Credits extends Phaser.Scene {
 
     this.add.image(this.width*0.5, this.height*0.5, "titled-panel").setOrigin(0.5).setScale(1.75)
     this.createText();
-    this.add.image(this.width*0.33, this.height*0.38, "pixelated-juan").setOrigin(0.5).setScale(0.3)
+    this.add.image(this.width*0.37, this.height*0.35, "pixelated-juan").setOrigin(0.5).setScale(0.3)
     this.createBackButton(this);
   }
 
@@ -23,21 +23,25 @@ export default class Credits extends Phaser.Scene {
     this.add.text(this.width*0.5, this.height*0.15, 'CREDITS', { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setColor('#EF1DEF').setFontSize(24);
 
     const headlines = [
-      {text: 'CREATED BY', widthFactor: 0.5, heightFactor: 0.27},
-      {text: 'ASSETS BY', widthFactor: 0.5, heightFactor: 0.55},
-      {text: 'FAVICON BY', widthFactor: 0.5, heightFactor: 0.75}
+      {text: 'CREATED BY:', widthFactor: 0.5, heightFactor: 0.25},
+      {text: 'MUSIC:', widthFactor: 0.306, heightFactor: 0.48},
+      {text: 'BY:', widthFactor: 0.332, heightFactor: 0.537},
+      {text: 'ASSETS BY:', widthFactor: 0.5, heightFactor: 0.664},
+      {text: 'FAVICON BY:', widthFactor: 0.5, heightFactor: 0.792}
     ];
     for (let headline of headlines) {
-      this.add.text(this.width*headline.widthFactor, this.height*headline.heightFactor, headline.text, { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setColor('#4DF3F5').setFontSize(20);
+      this.add.text(this.width*headline.widthFactor, this.height*headline.heightFactor, headline.text, { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setColor('#4DF3F5').setFontSize(14);
     }
 
     const contents = [
-      {text: 'Juan S. Auli', widthFactor: 0.57, heightFactor: 0.38},
-      {text: 'CraftPix.net', widthFactor: 0.5, heightFactor: 0.62},
-      {text: 'Freepik from www.flaticon.com', widthFactor: 0.5, heightFactor: 0.82}
+      {text: 'Juan S. Auli', widthFactor: 0.56, heightFactor: 0.35},
+      {text: 'Life After Death Star', widthFactor: 0.564, heightFactor: 0.48},
+      {text: 'Otaku Gang\n\n(Biggie x Star Wars)', widthFactor: 0.557, heightFactor: 0.56},
+      {text: 'CraftPix.net', widthFactor: 0.5, heightFactor: 0.714},
+      {text: 'Freepik from www.flaticon.com', widthFactor: 0.5, heightFactor: 0.842}
     ];
     for (let content of contents) {
-      this.add.text(this.width*content.widthFactor, this.height*content.heightFactor, content.text, { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setFontSize(20);
+      this.add.text(this.width*content.widthFactor, this.height*content.heightFactor, content.text, { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setFontSize(14);
     }
   }
 

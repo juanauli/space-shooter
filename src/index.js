@@ -17,7 +17,7 @@ import 'phaser';
 import config from './config/config'
 import Title from './scenes/Title'
 import MainMenu from './scenes/MainMenu'
-import CharacterChoosing from './scenes/CharacterChoosing'
+import SpaceshipChoosing from './scenes/SpaceshipChoosing'
 import Level1 from './scenes/Level1'
 import HighScores from './scenes/HighScores'
 import Controls from './scenes/Controls'
@@ -30,7 +30,7 @@ class Game extends Phaser.Game {
     //Add scenes
     this.scene.add('Title', Title)
     this.scene.add('MainMenu', MainMenu)
-    this.scene.add('CharacterChoosing', CharacterChoosing)
+    this.scene.add('SpaceshipChoosing', SpaceshipChoosing)
     this.scene.add('Level1', Level1)
     this.scene.add('HighScores', HighScores)
     this.scene.add('Controls', Controls)
