@@ -44,6 +44,6 @@ export default class Credits extends Phaser.Scene {
   createBackButton(scene) {
     scene.back = scene.add.image(scene.width*0.07, scene.height*0.11, "small-button");
     scene.backArrow = scene.add.text(scene.width*0.07, scene.height*0.1018, '\u2190', { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setFontSize(20).setScale(2);
-    this.scene.get('MainMenu').addButtonToText(scene, scene.back, 'white', this.previousSceneName, scene.backArrow);
+    scene.scene.get('MainMenu').addButtonToText(scene, scene.back, 'white', scene.previousSceneName, scene.backArrow);
   }
 }
