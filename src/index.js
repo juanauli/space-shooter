@@ -21,7 +21,6 @@ import CharacterChoosing from './scenes/CharacterChoosing'
 import Level1 from './scenes/Level1'
 import HighScores from './scenes/HighScores'
 import Controls from './scenes/Controls'
-import Settings from './scenes/Settings'
 import Credits from './scenes/Credits'
 
 class Game extends Phaser.Game {
@@ -35,7 +34,6 @@ class Game extends Phaser.Game {
     this.scene.add('Level1', Level1)
     this.scene.add('HighScores', HighScores)
     this.scene.add('Controls', Controls)
-    this.scene.add('Settings', Settings)
     this.scene.add('Credits', Credits)
 
     //Start game

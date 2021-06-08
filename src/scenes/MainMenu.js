@@ -17,7 +17,7 @@ export default class MainMenu extends Phaser.Scene {
   }
 
   addMenuOptions() {
-    const options = ['Standard Game', 'Quick Game', 'High Scores', 'Controls', 'Settings', 'Credits'];
+    const options = ['Standard Game', 'Quick Game', 'High Scores', 'Controls', 'Credits'];
     options.forEach((option, index) => {
       const optionName = option.split(' ').join('');
       let targetSceneName = optionName;
@@ -27,7 +27,7 @@ export default class MainMenu extends Phaser.Scene {
         targetSceneName = 'Level1';
       }
 
-      this.optionName = this.add.text(this.width*0.5, this.height*(0.2 + 0.12*index), option, { fontFamily: '"Press Start 2P"' }).setFontSize(26).setOrigin(0.5)
+      this.optionName = this.add.text(this.width*0.5, this.height*(0.24 + 0.13*index), option, { fontFamily: '"Press Start 2P"' }).setFontSize(26).setOrigin(0.5)
 
       this.addButtonToText(this, this.optionName, 'white', targetSceneName);
     })
