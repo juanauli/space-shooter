@@ -22,13 +22,18 @@ export default class Title extends Phaser.Scene {
 
     [1, 2, 3].forEach((n) => {
       this.load.image(`character${n}`, `assets/sprites/character-profiles/character${n}.png`);
-      this.load.image(`ship${n}`, `assets/sprites/spaceships/ship${n}.png`);
+      this.load.image(`ship${n}`, `assets/sprites/spaceships/ship${n}.png`)
+      this.load.spritesheet(`ship${n}-engine-fire`, `assets/spritesheets/spaceships/ship${n}-engine-fire.png`, {
+        frameWidth: 64,
+        frameHeight: 64,
+      });
     })
   }
 
   preloadSounds() {
     this.load.audio("click", "assets/audio/effects/click.wav");
     this.load.audio("hover", "assets/audio/effects/hover.wav");
+    this.load.audio("engine-fire-sound", "assets/audio/effects/engine-fire.wav");
     this.load.audio("ten-crack-commandments", "assets/audio/music/ten-crack-commandments.wav");
   }
 

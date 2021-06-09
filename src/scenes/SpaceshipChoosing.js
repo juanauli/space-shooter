@@ -1,6 +1,4 @@
 import Phaser from 'phaser'
-import store from '../store'
-import { setChosenCharacter } from '../store/player'
 
 export default class SpaceshipChoosing extends Phaser.Scene {
   constructor() {
@@ -25,6 +23,7 @@ export default class SpaceshipChoosing extends Phaser.Scene {
     this.addNextButton();
     this.addPreviousButton();
     this.addChooseButton();
+    this.createEngineAnimations();
     this.addCharacterInfo(this.selected);
   }
 
@@ -46,6 +45,9 @@ export default class SpaceshipChoosing extends Phaser.Scene {
 
     this.add.text(this.width*0.62, this.height*0.54, "SPACESHIP", { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setFontSize(16).setColor('#F57C2D');
     this.playerShip = this.add.image(this.width*0.62, this.height*0.63, `ship${selected+1}`).setOrigin(0.5, 0.5).setScale(0.8);
+    this.spaceshipFire = this.add.sprite(this.width*0.55, this.height*0.63, `ship${selected+1}-engine-fire`).setOrigin(0.5, 0.5).setScale(0.8);
+    this.spaceshipFire.setVisible(false);
+    this.addTurboOnHover()
     this.playerShipName = this.add.text(this.width*0.62, this.height*0.71, `${this.players[this.selected].spaceship}`, { fontFamily: '"Press Start 2P"' }).setOrigin(0.5).setFontSize(16);
   }
 
@@ -96,5 +98,55 @@ export default class SpaceshipChoosing extends Phaser.Scene {
     this.playerFullName.text = `${this.players[selected].name}`;
     this.playerShip.setTexture(`ship${this.selected+1}`);
     this.playerShipName.text = this.players[selected].spaceship;
+    this.spaceshipFire.setTexture(`ship${this.selected+1}-engine-fire`);
+    this.spaceshipFire.setVisible(false);
+  }
+
+  createEngineAnimations() {
+    [1, 2, 3].forEach((n) => {
+      this.anims.create({
+        key: `ship${n}-engine-fire-anim`,
+        frames: this.anims.generateFrameNumbers(`ship${n}-engine-fire`),
+        frameRate: 10,
+        repeat: -1,
+      })
+    })
+  }
+
+  addTurboOnHover() {
+    let widthFactor;
+    let heightFactor;
+    this.playerShip.setInteractive();
+    this.playerShip.on("pointerover", () => {
+      switch (this.selected) {
+        case 0:
+          [widthFactor, heightFactor] = [0.5635, 0.6285];
+          break;
+        case 1:
+          [widthFactor, heightFactor] = [0.558, 0.63];
+          break;
+        case 2:
+          [widthFactor, heightFactor] = [0.55, 0.63];
+          break;
+        default:
+          [widthFactor, heightFactor] = [0.55, 0.63];
+      }
+      this.spaceshipFire.setPosition(this.width*widthFactor, this.height*heightFactor);
+      this.spaceshipFire.setVisible(true);
+      this.spaceshipFire.play(`ship${this.selected+1}-engine-fire-anim`)
+      this.playEngineNoise();
+    })
+    this.playerShip.on("pointerout", () => {
+      this.spaceshipFire.setVisible(false);
+      this.spaceshipFire.stop(`ship${this.selected+1}-engine-fire-anim`)
+      this.engineFireSound.pause();
+    })
+  }
+
+  playEngineNoise() {
+    this.engineFireSound = this.sound.add('engine-fire-sound');
+    this.engineFireSound.setLoop(true);
+    this.engineFireSound.volume = 0.008;
+    this.engineFireSound.play();
   }
 }
