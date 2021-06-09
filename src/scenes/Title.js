@@ -13,6 +13,17 @@ export default class Title extends Phaser.Scene {
     this.load.image("titled-panel", "assets/sprites/gui/titled-panel.png");
     this.load.image("pixelated-juan", "assets/sprites/gui/pixelated-juan.png");
     this.load.image("small-button", "assets/sprites/gui/small-button.png");
+    this.load.image("info-cell", "assets/sprites/gui/info-cell.png");
+    this.load.image("choose-button", "assets/sprites/gui/choose-button.png");
+    this.load.image("top-decor-button", "assets/sprites/gui/top-decor-button.png");
+    this.load.image("play-button", "assets/sprites/gui/play-button.png");
+    this.load.image("reverse-play-button", "assets/sprites/gui/reverse-play-button.png");
+    this.load.image("character-cell-border", "assets/sprites/gui/character-cell-border.png");
+
+    [1, 2, 3].forEach((n) => {
+      this.load.image(`character${n}`, `assets/sprites/character-profiles/character${n}.png`);
+      this.load.image(`ship${n}`, `assets/sprites/spaceships/ship${n}.png`);
+    })
   }
 
   preloadSounds() {

@@ -22,7 +22,7 @@ export default class MainMenu extends Phaser.Scene {
       const optionName = option.split(' ').join('');
       let targetSceneName = optionName;
       if (option === 'Standard Game') {
-        targetSceneName = 'CharacterChoosing';
+        targetSceneName = 'SpaceshipChoosing';
       } else if (option === 'Quick Game') {
         targetSceneName = 'Level1';
       }
@@ -35,10 +35,9 @@ export default class MainMenu extends Phaser.Scene {
 
   addButtonToText(scene, target, initialColor, nextSceneName, textTarget) {
     if (!textTarget) textTarget = target;
-
     target.setInteractive();
     target.on("pointerover", () => {
-      textTarget.setColor('#EF1DEF')
+      textTarget.setColor('#EF1DEF');
       scene.scene.get('MainMenu').playHoverSound(scene)
     })
     target.on("pointerout", () => {
